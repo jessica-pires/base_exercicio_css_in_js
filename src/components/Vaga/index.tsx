@@ -27,5 +27,4 @@ const Vaga = (props: Props) => (
     </a>
   </li>
 )
-
 export default Vaga
