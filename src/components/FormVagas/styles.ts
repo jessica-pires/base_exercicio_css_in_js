@@ -1,6 +1,21 @@
+import React from 'react'
 import styled from 'styled-components'
 
-export const FormBusca = styled.form`
+interface FormProps {
+  children?: React.ReactNode
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+}
+interface ButtonProps {
+  type?: 'submit'
+  children: React.ReactNode
+}
+
+interface InputProps {
+  placeholder?: string
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
+
+export const FormBusca = styled.form<FormProps>`
   display: grid;
   grid-template-columns: 1fr auto;
   background-color: ${(props) => props.theme.corSecundaria};
@@ -9,7 +24,7 @@ export const FormBusca = styled.form`
   margin-top: 40px;
 `
 
-export const BtnPesquisar = styled.button`
+export const BtnPesquisar = styled.button<ButtonProps>`
   background-color: ${(props) => props.theme.corPrincipal};
   border: 1px solid ${(props) => props.theme.corPrincipal};
   height: 40px;
@@ -20,7 +35,7 @@ export const BtnPesquisar = styled.button`
   cursor: pointer;
 `
 
-export const CampoInput = styled.input`
+export const CampoInput = styled.input<InputProps>`
   padding: 0 16px;
   outline-color: ${(props) => props.theme.corPrincipal};
 `

@@ -1,6 +1,6 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, ChangeEvent, useState } from 'react'
 
-import { FormBusca, BtnPesquisar, CampoInput } from './styles'
+import { FormBusca, CampoInput, BtnPesquisar } from './styles'
 
 type Props = {
   aoPesquisar: (termo: string) => void
@@ -13,15 +13,17 @@ const FormVagas = ({ aoPesquisar }: Props) => {
     e.preventDefault()
     aoPesquisar(termo.toLocaleLowerCase())
   }
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setTermo(e.target.value)
+  }
 
   return (
     <FormBusca onSubmit={aoEnviarForm}>
       <CampoInput
         placeholder="Front-end, fullstack, node, design"
-        onChange={(e) => setTermo(e.target.value)}
-        type="search"
+        onChange={handleChange}
       />
-      <BtnPesquisar type="submit">Pesquisa</BtnPesquisar>
+      <BtnPesquisar>Pesquisar</BtnPesquisar>
     </FormBusca>
   )
 }
