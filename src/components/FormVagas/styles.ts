@@ -12,7 +12,7 @@ interface ButtonProps {
 
 interface InputProps {
   placeholder?: string
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+
 }
 
 export const FormBusca = styled.form<FormProps>`
